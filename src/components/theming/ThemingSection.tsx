@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import { ContractBased } from "./contractBased";
-import { ThemeContextProvider, useTheme } from "./theme";
-import { themedText } from "./contractBased/themed.css";
+import { ThemeContextProvider, useTheme } from "./theme/theme";
+import { themedText } from "./theme/common.css";
 
 const SectionContainer = ({ children }: PropsWithChildren<{}>) => {
   const { themeClass } = useTheme();

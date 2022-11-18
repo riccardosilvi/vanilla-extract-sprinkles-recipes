@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from "react";
-import { darkThemeClass } from "./contractBased/darkTheme.css";
-import { lightThemeClass } from "./contractBased/lightTheme.css";
+import { darkThemeClass } from "./darkTheme.css";
+import { lightThemeClass } from "./lightTheme.css";
+import { themedText } from "./common.css";
 
 type ThemeClass = typeof darkThemeClass | typeof lightThemeClass;
 
@@ -40,4 +41,13 @@ export const ThemeContextProvider = ({
 
 export const useTheme = () => {
   return React.useContext(ThemeContext);
+};
+
+export const ThemeToggler = () => {
+  const { toggleTheme } = useTheme();
+  return (
+    <button onClick={toggleTheme} className={themedText}>
+      ToggleTheme
+    </button>
+  );
 };

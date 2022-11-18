@@ -1,7 +1,6 @@
-import { themedSection, themedText } from "./themed.css";
 import React from "react";
-import { useTheme } from "../theme";
-import { ThemeToggler } from "./ThemeToggler";
+import { ThemeToggler } from "../theme/theme";
+import { themedSection } from "../theme/common.css";
 
 const Title = () => <h1>Welcome to themes</h1>;
 
