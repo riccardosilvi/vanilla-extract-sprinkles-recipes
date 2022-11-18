@@ -1,31 +1,30 @@
-import React, { PropsWithChildren } from "react";
-import { ContractBased } from "./contractBased";
-import { ThemeContextProvider, useTheme } from "./theme/theme";
-import { themedText } from "./theme/common.css";
+import React from "react";
+import { VanillaExtract } from "./vanillaExtract";
+import { StyledComps } from "./styledComponents/StyledComps";
 
-const SectionContainer = ({ children }: PropsWithChildren<{}>) => {
-  const { themeClass } = useTheme();
-  return <section className={themeClass}>{children}</section>;
+type SectionName = "vextract" | "scomponents";
+
+const THEMING_COMPONENTS = {
+  vextract: () => <VanillaExtract />,
+  scomponents: () => <StyledComps />,
 };
 
-const Instructions = () => (
-  <section>
-    <p className={themedText}>
-      The good part is that changing a theme triggers way fewer renders since
-      the css is already in place the only re-rendering components are the one
-      connected to context directly! All the components are anyway connected to
-      the theme since it is just a class in the top-tree element
-      SectionContainer
-    </p>
-  </section>
-);
 export const ThemingSection = () => {
+  const [currentSection, setCurrentSection] =
+    React.useState<SectionName>("scomponents");
+  const SectionComponent = THEMING_COMPONENTS[currentSection];
   return (
-    <ThemeContextProvider>
-      <SectionContainer>
-        <ContractBased />
-      </SectionContainer>
-      <Instructions />
-    </ThemeContextProvider>
+    <div>
+      <h1>THEMING</h1>
+      <p>Select your theme functionality</p>
+      <select
+        value={currentSection}
+        onChange={(e) => setCurrentSection(e.target.value as SectionName)}
+      >
+        <option value={"vextract"}>styled components</option>
+        <option value={"scomponents"}>vanilla-extract</option>
+      </select>
+      <SectionComponent />
+    </div>
   );
 };

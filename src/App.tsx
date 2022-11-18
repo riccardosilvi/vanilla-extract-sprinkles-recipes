@@ -1,7 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { StylingSection } from "./components/styling/StylingSection";
-import { appStyle } from "./app.css";
+import { AppContainer, appStyle } from "./app.css";
 import { ThemingSection } from "./components/theming/ThemingSection";
 
 type SectionName = "styling" | "theming" | "composition";
@@ -18,7 +18,7 @@ function App() {
   const SectionComponent = SECTIONS_COMPONENTS[currentSection];
 
   return (
-    <div className={`App ${appStyle}`}>
+    <div className={`App ${appStyle} ${AppContainer}`}>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />

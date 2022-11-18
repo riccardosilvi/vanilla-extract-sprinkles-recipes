@@ -10,3 +10,7 @@ export const appStyle = style({
     "--white": "#fff",
   },
 });
+
+export const AppContainer = style({
+  textAlign: "center",
+});
