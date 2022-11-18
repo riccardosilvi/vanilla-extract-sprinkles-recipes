@@ -3,13 +3,14 @@ import reactLogo from "./assets/react.svg";
 import { StylingSection } from "./components/styling/StylingSection";
 import { AppContainer, appStyle } from "./app.css";
 import { ThemingSection } from "./components/theming/ThemingSection";
+import { CompositionSection } from "./components/composition/CompositionSection";
 
 type SectionName = "styling" | "theming" | "composition";
 
 const SECTIONS_COMPONENTS = {
-  styling: () => <StylingSection />,
   theming: () => <ThemingSection />,
-  composition: () => null,
+  styling: () => <StylingSection />,
+  composition: () => <CompositionSection />,
 };
 
 function App() {
@@ -37,8 +38,8 @@ function App() {
         value={currentSection}
         onChange={(e) => setCurrentSection(e.target.value as SectionName)}
       >
-        <option value={"styling"}>styling</option>
         <option value={"theming"}>theming</option>
+        <option value={"styling"}>styling</option>
         <option value={"composition"}>composition</option>
       </select>
       <SectionComponent />

@@ -1,8 +1,12 @@
-import { style } from "@vanilla-extract/css";
+import { createVar, style } from "@vanilla-extract/css";
+
+//You can create var programmatically
+export const blackVar = createVar();
 
 export const appStyle = style({
   vars: {
-    "--black": "#000000",
+    [blackVar]: "#000000",
+    // or hardcode them
     "--yellow-300": "#ffcc00",
     "--green-300": "#35d77e",
     "--red-300": "#fe495c",

@@ -1,12 +1,15 @@
 import { style, createVar } from "@vanilla-extract/css";
+import { blackVar } from "../../../app.css";
 
 // scopedVar
 const darkenedBlueScopedVar = createVar();
 
+// variables can be recalled programmatically
 export const sectionStyle = style({
-  backgroundColor: "var(--black)",
+  backgroundColor: blackVar,
 });
 
+// or can be recalled by hardcoding them
 export const textStyle = style({
   color: "var(--white)",
 });
