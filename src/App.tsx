@@ -2,17 +2,18 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { StylingSection } from "./components/styling/StylingSection";
 import { appStyle } from "./app.css";
+import { ThemingSection } from "./components/theming/ThemingSection";
 
 type SectionName = "styling" | "theming" | "composition";
 
 const SECTIONS_COMPONENTS = {
   styling: () => <StylingSection />,
-  theming: () => null,
+  theming: () => <ThemingSection />,
   composition: () => null,
 };
 
 function App() {
-  const [currentSection, setCurrentSection] = useState<SectionName>("styling");
+  const [currentSection, setCurrentSection] = useState<SectionName>("theming");
 
   const SectionComponent = SECTIONS_COMPONENTS[currentSection];
 
