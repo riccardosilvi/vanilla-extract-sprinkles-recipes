@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import { darkThemeClass } from "./styles/theme/darkTheme.css";
 import { lightThemeClass } from "./styles/theme/lightTheme.css";
 import SprinklesBox from "./components/SprinklesBox";
+import { SprinklesButton } from "./components/SprinklesButton";
 
 const THEMES = {
   dark: darkThemeClass,
@@ -28,6 +29,9 @@ function App() {
       <SprinklesBox p={"2xl"} m={["sm", "lg", "xl", "2xl"]}>
         <h1>Vite + React + Vanilla-Extract</h1>
       </SprinklesBox>
+      <SprinklesButton size={"sm"} variant={"primary"}>
+        Drop a Like
+      </SprinklesButton>
     </div>
   );
 }
