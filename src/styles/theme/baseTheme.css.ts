@@ -3,12 +3,13 @@ import { createThemeContract } from "@vanilla-extract/css";
 const SYSTEM_FONT = `Matter YP, Averta Std, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif`;
 
 export const BREAKPOINTS = {
+  xs: 0,
   sm: 640,
   md: 768,
   lg: 1024,
   xl: 1280,
   "2xl": 1680
-};
+} as const;
 
 const borderStyle = {
   default: "1px solid",
