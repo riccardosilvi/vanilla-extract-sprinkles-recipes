@@ -60,3 +60,26 @@ const responsiveProperties = defineProperties({
 });
 
 export const sprinkles = createSprinkles(responsiveProperties);
+
+export type Sprinkles = Parameters<typeof sprinkles>[0];
+
+// Props can be grouped by picking from sprinkles
+export type SprinklesSpaceProps = Pick<
+  Sprinkles,
+  | "padding"
+  | "paddingTop"
+  | "paddingBottom"
+  | "paddingLeft"
+  | "paddingRight"
+  | "margin"
+  | "marginTop"
+  | "marginBottom"
+  | "marginLeft"
+  | "marginRight"
+  | "p"
+  | "px"
+  | "py"
+  | "m"
+  | "mx"
+  | "my"
+>;

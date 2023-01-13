@@ -2,13 +2,14 @@ import React from "react";
 import reactLogo from "./assets/react.svg";
 import { darkThemeClass } from "./styles/theme/darkTheme.css";
 import { lightThemeClass } from "./styles/theme/lightTheme.css";
+import SprinklesBox from "./components/SprinklesBox";
 
 const THEMES = {
-    dark: darkThemeClass,
-    light: lightThemeClass
+  dark: darkThemeClass,
+  light: lightThemeClass,
 };
 function App() {
-    const [themeClass, setThemeClass] = React.useState(THEMES.light);
+  const [themeClass, setThemeClass] = React.useState(THEMES.light);
   return (
     <div className={`App ${themeClass}`}>
       <div>
@@ -24,7 +25,9 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React + Vanilla-Extract</h1>
+      <SprinklesBox p={"2xl"} m={["sm", "lg", "xl", "2xl"]}>
+        <h1>Vite + React + Vanilla-Extract</h1>
+      </SprinklesBox>
     </div>
   );
 }
