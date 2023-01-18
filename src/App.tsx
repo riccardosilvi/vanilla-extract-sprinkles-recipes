@@ -4,6 +4,7 @@ import { darkThemeClass } from "./styles/theme/darkTheme.css";
 import { lightThemeClass } from "./styles/theme/lightTheme.css";
 import SprinklesBox from "./components/SprinklesBox";
 import { SprinklesButton } from "./components/SprinklesButton";
+import { RecipesButton } from "./components/RecipesButton";
 
 const THEMES = {
   dark: darkThemeClass,
@@ -30,8 +31,11 @@ function App() {
         <h1>Vite + React + Vanilla-Extract</h1>
       </SprinklesBox>
       <SprinklesButton size={"sm"} variant={"primary"}>
-        Drop a Like
+        Drop a Like for sprinkles
       </SprinklesButton>
+      <RecipesButton size={"sm"} variant={"primary"}>
+        Drop a Like for recipes
+      </RecipesButton>
     </div>
   );
 }
