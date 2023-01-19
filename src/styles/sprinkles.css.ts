@@ -24,29 +24,31 @@ function transformBreakpoints<Output>(input: Record<string, any>) {
   return responsiveConditions;
 }
 
+export const responsiveSupportedProps = {
+  position: [`relative`],
+  display: [`none`, `block`, `inline`, `inline-block`, `flex`],
+  alignItems: [`flex-start`, `center`, `flex-end`, `baseline`],
+  justifyContent: [`flex-start`, `center`, `flex-end`, `space-between`],
+  flexDirection: [`row`, `row-reverse`, `column`, `column-reverse`],
+  flexWrap: [`wrap`, `nowrap`],
+  padding: spacing,
+  paddingTop: spacing,
+  paddingBottom: spacing,
+  paddingLeft: spacing,
+  paddingRight: spacing,
+  margin: spacing,
+  marginTop: spacing,
+  marginBottom: spacing,
+  marginLeft: spacing,
+  marginRight: spacing,
+} as const;
+
 const responsiveProperties = defineProperties({
   conditions:
     transformBreakpoints<Record<keyof typeof BREAKPOINTS, {}>>(BREAKPOINTS),
   responsiveArray: ["xs", "sm", "md", "lg", "xl", "2xl"] as const,
   defaultCondition: "xs" as const,
-  properties: {
-    position: [`relative`],
-    display: [`none`, `block`, `inline`, `inline-block`, `flex`],
-    alignItems: [`flex-start`, `center`, `flex-end`, `baseline`],
-    justifyContent: [`flex-start`, `center`, `flex-end`, `space-between`],
-    flexDirection: [`row`, `row-reverse`, `column`, `column-reverse`],
-    flexWrap: [`wrap`, `nowrap`],
-    padding: spacing,
-    paddingTop: spacing,
-    paddingBottom: spacing,
-    paddingLeft: spacing,
-    paddingRight: spacing,
-    margin: spacing,
-    marginTop: spacing,
-    marginBottom: spacing,
-    marginLeft: spacing,
-    marginRight: spacing,
-  },
+  properties: responsiveSupportedProps,
   // this composes rules and must be ordered!
   // "px" and "py" are after "p" so they can override it
   shorthands: {
@@ -82,4 +84,9 @@ export type SprinklesSpaceProps = Pick<
   | "m"
   | "mx"
   | "my"
+>;
+
+export type SprinklesFlexboxProps = Pick<
+  Sprinkles,
+  "justifyContent" | "alignItems" | "flexDirection" | "flexWrap"
 >;

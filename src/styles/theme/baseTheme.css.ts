@@ -8,22 +8,22 @@ export const BREAKPOINTS = {
   md: 768,
   lg: 1024,
   xl: 1280,
-  "2xl": 1680
+  "2xl": 1680,
 } as const;
 
 const borderStyle = {
   default: "1px solid",
-  interactive: "2px solid"
+  interactive: "2px solid",
 };
 
 const radii = {
   xs: `0.25 rem`,
   sm: `0.5 rem`,
   md: `0.75 rem`,
-  lg: `1 rem`
+  lg: `1 rem`,
 };
 
-const spacing = {
+export const spacing = {
   "6xs": `2px`,
   "5xs": `4px`,
   "4xs": `8px`,
@@ -34,8 +34,8 @@ const spacing = {
   md: `40px`,
   lg: `48px`,
   xl: `56px`,
-  "2xl": `64px`
-};
+  "2xl": `64px`,
+} as const;
 
 const sizing = {
   "2xs": `16`,
@@ -44,33 +44,33 @@ const sizing = {
   md: `40`,
   lg: `48`,
   xl: `56`,
-  "2xl": `64`
+  "2xl": `64`,
 };
 
 export const baseTheme = {
   font: {
-    body: SYSTEM_FONT
+    body: SYSTEM_FONT,
   },
   borderStyle,
   radii,
   spacing,
-  sizing
+  sizing,
 };
 
 export const vars = createThemeContract({
   colors: {
     background: {
       primary: ``,
-      secondary: ``
+      secondary: ``,
     },
     text: {
       primary: ``,
       secondary: ``,
-      disable: ``
-    }
+      disable: ``,
+    },
   },
   font: {
-    body: ``
+    body: ``,
   },
   spacing: {
     "6xs": ``,
@@ -83,7 +83,7 @@ export const vars = createThemeContract({
     md: ``,
     lg: ``,
     xl: ``,
-    "2xl": ``
+    "2xl": ``,
   },
   sizing: {
     "2xs": ``,
@@ -92,16 +92,16 @@ export const vars = createThemeContract({
     md: ``,
     lg: ``,
     xl: ``,
-    "2xl": ``
+    "2xl": ``,
   },
   radii: {
     xs: ``,
     sm: ``,
     md: ``,
-    lg: ``
+    lg: ``,
   },
   borderStyle: {
     default: ``,
-    interactive: ``
-  }
+    interactive: ``,
+  },
 });

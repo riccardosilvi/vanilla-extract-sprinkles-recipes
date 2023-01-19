@@ -5,6 +5,7 @@ import { lightThemeClass } from "./styles/theme/lightTheme.css";
 import SprinklesBox from "./components/SprinklesBox";
 import { SprinklesButton } from "./components/SprinklesButton";
 import { RecipesButton } from "./components/RecipesButton";
+import { Stack } from "./components/Stack";
 
 const THEMES = {
   dark: darkThemeClass,
@@ -30,12 +31,27 @@ function App() {
       <SprinklesBox p={"2xl"} m={["sm", "lg", "xl", "2xl"]}>
         <h1>Vite + React + Vanilla-Extract</h1>
       </SprinklesBox>
-      <SprinklesButton size={"sm"} variant={"primary"}>
-        Drop a Like for sprinkles
-      </SprinklesButton>
-      <RecipesButton size={"sm"} variant={"primary"}>
-        Drop a Like for recipes
-      </RecipesButton>
+      <Stack
+        direction={"column"}
+        spacing={"sm"}
+        justify={"space-between"}
+        align={"center"}
+      >
+        <h1>This is a column stack with a row stack inside for buttons</h1>
+        <Stack
+          direction={"row"}
+          spacing={"md"}
+          justify={"space-between"}
+          align={"center"}
+        >
+          <SprinklesButton size={"sm"} variant={"primary"}>
+            Drop a Like for sprinkles
+          </SprinklesButton>
+          <RecipesButton size={"sm"} variant={"primary"}>
+            Drop a Like for recipes
+          </RecipesButton>
+        </Stack>
+      </Stack>
     </div>
   );
 }
