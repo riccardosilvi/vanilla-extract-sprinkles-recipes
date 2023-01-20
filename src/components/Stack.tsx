@@ -10,9 +10,22 @@ import {
 export type StackProps = PropsWithChildren<
   StackParentVariants & StackChildVariants
 >;
-export const Stack = ({ children, ...props }: StackProps) => {
-  const stackParentClass = stackParent(props);
-  const stackChildClass = stackChild(props);
+export const Stack = ({
+  children,
+  spacing,
+  justify,
+  align,
+  direction,
+}: StackProps) => {
+  const stackParentClass = stackParent({
+    direction,
+    align,
+    justify,
+  });
+  const stackChildClass = stackChild({
+    direction,
+    spacing,
+  });
   const childrenArray = React.Children.toArray(children);
   return (
     <div className={`stack-parent ${stackElementClass}  ${stackParentClass}`}>
