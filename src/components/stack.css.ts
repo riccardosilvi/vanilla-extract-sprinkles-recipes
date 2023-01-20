@@ -46,7 +46,7 @@ export const stackElementClass = style({});
 const mapVariants = <VariantName extends Readonly<string>>(
   variantNames: Readonly<VariantName[]>,
   mapFn?: (variantName: VariantName) => StyleRule
-): Record<VariantName[][number], StyleRule> =>
+): Record<VariantName, StyleRule> =>
   variantNames.reduce<Record<VariantName, StyleRule>>(
     (acc, variantName) =>
       Object.assign(acc, {
