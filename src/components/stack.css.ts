@@ -1,7 +1,6 @@
-import { style, StyleRule } from "@vanilla-extract/css";
+import { StyleRule } from "@vanilla-extract/css";
 import { spacing as spacingRules, vars } from "../styles/theme/baseTheme.css";
 import { recipe, RecipeVariants } from "@vanilla-extract/recipes";
-import { Property } from "csstype";
 import React from "react";
 
 type CssPropertyValues<
@@ -24,24 +23,9 @@ const JUSTIFY_RULES: CssPropertyValues<
   `flex-start` | `center` | `flex-end` | `space-between`
 > = [`flex-start`, `center`, `flex-end`, `space-between`] as const;
 
-type MarginRule =
-  | Property.MarginTop
-  | Property.MarginBottom
-  | Property.MarginLeft
-  | Property.MarginRight;
-
-const RULE_BY_DIRECTION: Record<typeof FLEX_DIRECTIONS[number], MarginRule> = {
-  row: "marginLeft",
-  column: "marginTop",
-  "row-reverse": "marginRight",
-  "column-reverse": "marginBottom",
-} as const;
-
 const SPACINGS_KEYS = Object.keys(spacingRules) as Array<
   keyof typeof spacingRules
 >;
-
-export const stackElementClass = style({});
 
 const mapVariantValues = <V extends Readonly<string>>(
   variantValues: Readonly<V[]>,
@@ -67,17 +51,6 @@ export const stackParent = recipe({
     justify: mapVariantValues(JUSTIFY_RULES, (variantValue) => ({
       justifyContent: variantValue,
     })),
-  },
-});
-export const stackChild = recipe({
-  base: style({
-    marginTop: 0,
-    marginBottom: 0,
-    marginLeft: 0,
-    marginRight: 0,
-  }),
-  variants: {
-    direction: mapVariantValues(FLEX_DIRECTIONS),
     spacing: mapVariantValues(SPACINGS_KEYS),
   },
   compoundVariants: FLEX_DIRECTIONS.flatMap((direction) => {
@@ -86,16 +59,12 @@ export const stackChild = recipe({
         direction,
         spacing,
       },
-      style: style({
-        selectors: {
-          [`${stackElementClass} > & + &`]: {
-            [RULE_BY_DIRECTION[direction]]: vars.spacing[spacing],
-          },
-        },
-      }),
+      style: {
+        columnGap: direction.includes("row") ? vars.spacing[spacing] : 0,
+        rowGap: direction.includes("column") ? vars.spacing[spacing] : 0,
+      },
     }));
   }),
 });
 
-export type StackParentVariants = RecipeVariants<typeof stackParent>;
-export type StackChildVariants = RecipeVariants<typeof stackChild>;
+export type StackVariants = RecipeVariants<typeof stackParent>;
