@@ -43,29 +43,29 @@ const SPACINGS_KEYS = Object.keys(spacingRules) as Array<
 
 export const stackElementClass = style({});
 
-const mapVariants = <VariantName extends Readonly<string>>(
-  variantNames: Readonly<VariantName[]>,
-  mapFn?: (variantName: VariantName) => StyleRule
-): Record<VariantName, StyleRule> =>
-  variantNames.reduce<Record<VariantName, StyleRule>>(
-    (acc, variantName) =>
+const mapVariantValues = <V extends Readonly<string>>(
+  variantValues: Readonly<V[]>,
+  mapFn?: (value: V) => StyleRule
+): Record<V, StyleRule> =>
+  variantValues.reduce<Record<V, StyleRule>>(
+    (acc, value) =>
       Object.assign(acc, {
-        [variantName]: mapFn?.(variantName) ?? {},
+        [value]: mapFn?.(value) ?? {},
       }),
-    {} as Record<VariantName, StyleRule>
+    {} as Record<V, StyleRule>
   );
 
 export const stackParent = recipe({
   base: { display: "flex" },
   variants: {
-    direction: mapVariants(FLEX_DIRECTIONS, (variantName) => ({
-      flexDirection: variantName,
+    direction: mapVariantValues(FLEX_DIRECTIONS, (variantValue) => ({
+      flexDirection: variantValue,
     })),
-    align: mapVariants(ALIGN_RULES, (variantName) => ({
-      alignItems: variantName,
+    align: mapVariantValues(ALIGN_RULES, (variantValue) => ({
+      alignItems: variantValue,
     })),
-    justify: mapVariants(JUSTIFY_RULES, (variantName) => ({
-      justifyContent: variantName,
+    justify: mapVariantValues(JUSTIFY_RULES, (variantValue) => ({
+      justifyContent: variantValue,
     })),
   },
 });
@@ -77,8 +77,8 @@ export const stackChild = recipe({
     marginRight: 0,
   }),
   variants: {
-    direction: mapVariants(FLEX_DIRECTIONS),
-    spacing: mapVariants(SPACINGS_KEYS),
+    direction: mapVariantValues(FLEX_DIRECTIONS),
+    spacing: mapVariantValues(SPACINGS_KEYS),
   },
   compoundVariants: FLEX_DIRECTIONS.flatMap((direction) => {
     return SPACINGS_KEYS.map((spacing) => ({
