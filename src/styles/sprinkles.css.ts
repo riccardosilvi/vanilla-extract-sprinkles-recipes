@@ -1,5 +1,10 @@
 import { BREAKPOINTS, vars } from "./theme/baseTheme.css";
-import { createSprinkles, defineProperties } from "@vanilla-extract/sprinkles";
+import {
+  ConditionalValue,
+  createNormalizeValueFn,
+  createSprinkles,
+  defineProperties,
+} from "@vanilla-extract/sprinkles";
 
 const { spacing } = vars;
 function transformBreakpoints<Output>(input: Record<string, any>) {
@@ -41,12 +46,16 @@ export const responsiveSupportedProps = {
   marginBottom: spacing,
   marginLeft: spacing,
   marginRight: spacing,
+  columnGap: spacing,
+  rowGap: spacing,
 } as const;
+
+export const responsiveArray = ["xs", "sm", "md", "lg", "xl", "2xl"] as const;
 
 const responsiveProperties = defineProperties({
   conditions:
     transformBreakpoints<Record<keyof typeof BREAKPOINTS, {}>>(BREAKPOINTS),
-  responsiveArray: ["xs", "sm", "md", "lg", "xl", "2xl"] as const,
+  responsiveArray: responsiveArray,
   defaultCondition: "xs" as const,
   properties: responsiveSupportedProps,
   // this composes rules and must be ordered!
@@ -62,6 +71,14 @@ const responsiveProperties = defineProperties({
 });
 
 export const sprinkles = createSprinkles(responsiveProperties);
+
+export const normalizeResponsiveValue =
+  createNormalizeValueFn(responsiveProperties);
+
+export type ResponsiveValue<Value extends string | number> = ConditionalValue<
+  typeof responsiveProperties,
+  Value
+>;
 
 export type Sprinkles = Parameters<typeof sprinkles>[0];
 

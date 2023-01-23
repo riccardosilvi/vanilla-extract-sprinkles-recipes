@@ -6,7 +6,7 @@ import {
 } from "../styles/sprinkles.css";
 
 export type SprinklesBoxProps = PropsWithChildren<
-  React.HTMLAttributes<HTMLDivElement> & SprinklesSpaceProps
+  React.HTMLAttributes<HTMLDivElement> & Sprinkles
 >;
 export const SprinklesBox = ({
   className = "",
