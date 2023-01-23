@@ -72,7 +72,7 @@ export const SprinklesStack = ({ children, spacing, ...props }: StackProps) => {
       ResponsiveValue<keyof typeof spacingRules>
     >
   );
-  console.log(gaps);
+
   return (
     <SprinklesBox
       className={baseStackStyle}
