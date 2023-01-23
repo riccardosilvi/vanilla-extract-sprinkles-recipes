@@ -1,7 +1,6 @@
 import { BREAKPOINTS, vars } from "./theme/baseTheme.css";
 import {
   ConditionalValue,
-  createMapValueFn,
   createNormalizeValueFn,
   createSprinkles,
   defineProperties,
