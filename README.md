@@ -55,8 +55,11 @@ A button is a perfect example of that, the user can tell you if it is primary or
 ## Packages
 
 [Vite](https://vitejs.dev/)
+
 [vanilla-extract](https://github.com/vanilla-extract-css/vanilla-extract)
+
 [sprinkles](https://www.npmjs.com/package/@vanilla-extract/sprinkles)
+
 [recipes](https://www.npmjs.com/package/@vanilla-extract/recipes/v/0.1.1#recipe)
 
 Not mentioning storybook since it is here but it was not used
@@ -69,15 +72,16 @@ LekoArts articles:
 - [portfolio repository](https://github.com/LekoArts/portfolio-v2)
 
 Docs
-[vanilla-extract](https://vanilla-extract.style/documentation/getting-started/)
+- [vanilla-extract](https://vanilla-extract.style/documentation/getting-started/)
 
 Vanilla Extract site repository
-[Stack component](https://github.com/vanilla-extract-css/vanilla-extract/blob/master/site/src/system/Stack/Stack.tsx)
-[recipes package responsive issue](https://github.com/vanilla-extract-css/vanilla-extract/discussions/497)
+
+- [Stack component](https://github.com/vanilla-extract-css/vanilla-extract/blob/master/site/src/system/Stack/Stack.tsx)
+- [recipes package responsive issue](https://github.com/vanilla-extract-css/vanilla-extract/discussions/497)
 
 MDN
-[row-gap css rule](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap)
-[gap shortand css rule](https://developer.mozilla.org/en-US/docs/Web/CSS/gap)
+- [row-gap css rule](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap)
+- [gap shortand css rule](https://developer.mozilla.org/en-US/docs/Web/CSS/gap)
 
 ## Available Scripts
 
