@@ -52,6 +52,14 @@ A perfect example of this are generic building blocks like Box and Stack compone
 Recipes is best for readability and components which accept variants that can manage responsive through css rules internally.
 A button is a perfect example of that, the user can tell you if it is primary or secondary, if it is large or small but must not be able to customise it for each breakpoint ( otherwise having a desing system does not make sense).
 
+## My process
+
+You can find further documentation on my reasoning on PR descriptions.
+Building a stack component helped me shape my idea on responsiveness.
+- [1st step - stack with recipes (not responsive)](https://github.com/riccardosilvi/vanilla-extract-sprinkles-recipes/pull/2)
+- [2nd step - adopt gap rule to avoid additional markup](https://github.com/riccardosilvi/vanilla-extract-sprinkles-recipes/pull/3)
+- [3rd step - stack with sprinkles with responsivenes and no additional markup](https://github.com/riccardosilvi/vanilla-extract-sprinkles-recipes/pull/4)
+
 ## Packages
 
 [Vite](https://vitejs.dev/)
