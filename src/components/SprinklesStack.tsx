@@ -48,7 +48,7 @@ const getFullyResponsiveValue = <T extends string | number>(
 export const SprinklesStack = ({ children, spacing, ...props }: StackProps) => {
   const directionsByBreakpoints = getFullyResponsiveValue(props.direction);
   const spacingSizes = getFullyResponsiveValue(spacing);
-  console.log(directionsByBreakpoints, spacingSizes);
+
   const gaps = responsiveArray.reduce(
     (acc, breakpoint) => {
       const direction = directionsByBreakpoints[breakpoint];
