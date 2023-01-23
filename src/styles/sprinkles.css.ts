@@ -73,8 +73,6 @@ const responsiveProperties = defineProperties({
 
 export const sprinkles = createSprinkles(responsiveProperties);
 
-export const mapResponsiveValue = createMapValueFn(responsiveProperties);
-
 export const normalizeResponsiveValue =
   createNormalizeValueFn(responsiveProperties);
 
