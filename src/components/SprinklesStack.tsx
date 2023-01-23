@@ -8,6 +8,8 @@ import {
   SprinklesFlexboxProps,
 } from "../styles/sprinkles.css";
 import { spacing as spacingRules, vars } from "../styles/theme/baseTheme.css";
+import SprinklesBox from "./SprinklesBox";
+import { baseStackStyle } from "./sprinkles-stack.css";
 
 export type StackProps = PropsWithChildren<{
   direction: ResponsiveValue<
@@ -72,16 +74,14 @@ export const SprinklesStack = ({ children, spacing, ...props }: StackProps) => {
   );
   console.log(gaps);
   return (
-    <div
-      className={`stack-parent ${sprinkles({
-        display: "flex",
-        flexDirection: props.direction,
-        alignItems: props.align,
-        justifyContent: props.justify,
-        ...gaps,
-      })}`}
+    <SprinklesBox
+      className={baseStackStyle}
+      flexDirection={props.direction}
+      alignItems={props.align}
+      justifyContent={props.justify}
+      {...gaps}
     >
       {children}
-    </div>
+    </SprinklesBox>
   );
 };
